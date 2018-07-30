@@ -8,15 +8,14 @@ class DishSummary extends Component {
 
         if(dish != null) {
             const card = (
-                <div key="card" className="col-12 col-md-5 m-1">
-                    <Card >
+                    <Card>
                         <CardImg width="100%" src={dish.image} alt={dish.name}/>
                         <CardBody>
                             <CardTitle >{dish.name}</CardTitle>
                             <CardText >{dish.description}</CardText>
                         </CardBody>
                     </Card>
-                </div>);
+                );
             var commentsContainter = null;
             if(dish != null && dish.comments != null){
                 var comments = dish.comments.map((comment) => {
@@ -27,10 +26,16 @@ class DishSummary extends Component {
                         </div>);
                 });
                 commentsContainter = 
-                    (<div key="comments" className="col-12 col-md-5 m-1"><b>Comments:</b><br/>{comments}</div>);
+                    (<div className="col-12 col-md-5 m-1"><b>Comments:</b><br/>{comments}</div>);
             }
-
-            return [card, commentsContainter];
+            return  (<div className = "container">
+                        <div className="row">
+                            <div className="col-12 col-md-5 m-1">
+                                {card}
+                            </div>
+                            {commentsContainter}
+                        </div>
+                    </div>);
         }
         else{
             return(<div></div>);
