@@ -17,7 +17,7 @@ class DishSummary extends Component {
                     </Card>
                 );
             var commentsContainter = null;
-            if(dish != null && dish.comments != null){
+            if(dish.comments != null){
                 var comments = dish.comments.map((comment) => {
                     return (
                         <div key= {comment.id}>
